@@ -19,9 +19,8 @@ function renderSeriesInTable(dataSeries: Serie[]): void {
                                 <td>${serie.canal}</td>
                                 <td>${serie.temporadas}</td>`;
         seriesTbody.appendChild(trElement);
-
         let btnSerie: HTMLElement = document.getElementById("button-serie-" + serie.id)!;
-        btnSerie.onclick = () => renderCardDescription(dataSeries, serie.id - 1);
+        btnSerie.onclick = () => renderCardDescription(serie);
     });
 }
 
@@ -40,8 +39,7 @@ function renderAverageSeasons(seasons: number): void {
     seriesTbody.appendChild(trElement);
 }
 
-function renderCardDescription(dataSeries: Serie[], id: number): void {
-    let serie: Serie = dataSeries[id];
+function renderCardDescription(serie: Serie): void {
     cardDescription.innerHTML = `<img class="card-img-top" src=${serie.imagen} alt=${serie.imagen}>
                                 <div class="card-body">
                                     <h5 class="card-title">${serie.nombre}</h5>
